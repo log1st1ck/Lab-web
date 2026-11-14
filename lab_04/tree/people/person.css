@@ -1,0 +1,2 @@
+body { margin: 24px; font: 16px/1.5 Arial, sans-serif; text-align: center; }
+img { display: block; width: min(100%, 360px); height: auto; margin-inline: auto; border-radius: 10px; }

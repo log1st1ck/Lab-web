@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>My To Do List</title>
+  <style>
+    body { margin: 24px; font: 16px Arial, sans-serif; }
+    main { max-width: 470px; }
+    .tasks { padding: 0; list-style: none; }
+    .tasks li { display: flex; align-items: center; gap: 12px; min-height: 42px; padding-inline: 14px; background: #a5cbd8; }
+    .tasks li:nth-child(even) { background: #b9dce6; }
+    .tasks li:has(input:checked) { background: #dedede; }
+    .tasks label { display: flex; align-items: center; gap: 10px; cursor: pointer; }
+    .tasks input { appearance: none; margin: 0; width: 1.3em; font-size: 18px; color: #182c32; cursor: pointer; }
+    .tasks input::before { content: "☐"; }
+    .tasks input:checked::before { content: "☑"; }
+    .tasks input:checked + span { text-decoration: line-through; }
+    .tasks button { border: 0; background: transparent; color: #9d2035; font-size: 20px; cursor: pointer; }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>My To Do List</h1>
+    <ul class="tasks">
+      <li><label><input type="checkbox"><span>Hit the gym</span></label><button type="button" aria-label="Remove Hit the gym">×</button></li>
+      <li><label><input type="checkbox"><span>Pay bills</span></label><button type="button" aria-label="Remove Pay bills">×</button></li>
+      <li><label><input type="checkbox" checked><span>Meet John</span></label><button type="button" aria-label="Remove Meet John">×</button></li>
+      <li><label><input type="checkbox" checked><span>Buy eggs</span></label><button type="button" aria-label="Remove Buy eggs">×</button></li>
+      <li><label><input type="checkbox"><span>Read a book</span></label><button type="button" aria-label="Remove Read a book">×</button></li>
+      <li><label><input type="checkbox"><span>Organize office</span></label><button type="button" aria-label="Remove Organize office">×</button></li>
+      <li><label><input type="checkbox"><span>Eat dinner</span></label><button type="button" aria-label="Remove Eat dinner">×</button></li>
+      <li><label><input type="checkbox"><span>Buy apples</span></label><button type="button" aria-label="Remove Buy apples">×</button></li>
+      <li><label><input type="checkbox"><span>Meet Georg</span></label><button type="button" aria-label="Remove Meet Georg">×</button></li>
+      <li><label><input type="checkbox" checked><span>Feed the cat</span></label><button type="button" aria-label="Remove Feed the cat">×</button></li>
+      <li><label><input type="checkbox"><span>Write a letter</span></label><button type="button" aria-label="Remove Write a letter">×</button></li>
+      <li><label><input type="checkbox"><span>Run 1 km</span></label><button type="button" aria-label="Remove Run 1 km">×</button></li>
+    </ul>
+  </main>
+  <script>
+    document.querySelector(".tasks").addEventListener("click", (event) => {
+      if (event.target.matches("button")) event.target.closest("li").remove();
+    });
+  </script>
+</body>
+</html>

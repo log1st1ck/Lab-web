@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Картка SSD</title>
+  <style>
+    body { margin: 24px; font: 15px/1.45 Arial, sans-serif; color: #252c32; }
+    .product { box-sizing: border-box; width: min(100%, 240px); margin: auto; padding: 12px; border: 1px solid #d3d7da; border-radius: 10px; background: #f2f3f4; }
+    .product-photo { display: block; width: 100%; height: auto; aspect-ratio: 1; object-fit: cover; border-radius: 6px; }
+    .product-model { font-size: 1rem; font-weight: bold; text-align: center; overflow-wrap: anywhere; }
+    .product-specs { margin: 10px 0 16px; }
+    .product-spec { display: flex; justify-content: space-between; gap: 5px; margin-block: 6px; }
+    .spec-label { color: #495662; }
+    .spec-value { margin: 0; }
+    .product-actions { display: flex; justify-content: center; gap: 10px; }
+    .edit, .delete { min-width: 78px; padding: 5px 9px; border: 1px solid currentColor; border-radius: 5px; background: white; font: inherit; cursor: pointer; }
+    .edit { color: #206481; }
+    .delete { color: #ab2638; }
+    .edit:hover, .edit:focus-visible { background: #d9edf5; }
+    .delete:hover, .delete:focus-visible { background: #f9dce0; }
+  </style>
+</head>
+<body>
+  <main>
+    <article class="product">
+      <img class="product-photo" src="ssd.jpg" alt="Samsung 860 EVO, SSD формату 2,5 дюйма" width="212" height="212">
+      <h1 class="product-model">Samsung 860 EVO</h1>
+      <dl class="product-specs">
+        <div class="product-spec"><dt class="spec-label">Об’єм</dt><dd class="spec-value">500 ГБ</dd></div>
+        <div class="product-spec"><dt class="spec-label">Інтерфейс</dt><dd class="spec-value">SATA III</dd></div>
+        <div class="product-spec"><dt class="spec-label">Читання</dt><dd class="spec-value">до 550 МБ/с</dd></div>
+        <div class="product-spec"><dt class="spec-label">Запис</dt><dd class="spec-value">до 520 МБ/с</dd></div>
+      </dl>
+      <div class="product-actions">
+        <button class="edit" type="button" lang="en">Edit</button>
+        <button class="delete" type="button" lang="en">Delete</button>
+      </div>
+    </article>
+  </main>
+  <script>
+    const model = document.querySelector(".product-model");
+    document.querySelector(".edit").addEventListener("click", () => {
+      const name = prompt("Назва моделі", model.textContent);
+      if (name?.trim()) model.textContent = name.trim();
+    });
+    document.querySelector(".delete").addEventListener("click", () => {
+      if (confirm("Видалити картку SSD?")) {
+        document.querySelector("main").textContent = "Картку видалено.";
+      }
+    });
+  </script>
+</body>
+</html>
